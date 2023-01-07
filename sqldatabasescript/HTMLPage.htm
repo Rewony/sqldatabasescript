@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+
+    <p>
+
+
+
+        USE [HotelReservationApp]
+        GO
+        /****** Object:  Table [dbo].[AracýFirmaTablosu]    Script Date: 7.01.2023 21:42:13 ******/
+        SET ANSI_NULLS ON
+        GO
+        SET QUOTED_IDENTIFIER ON
+        GO
+        CREATE TABLE [dbo].[AracýFirmaTablosu](
+        [FirmaID] [nchar](50) NOT NULL,
+        [Websitesi] [nchar](50) NULL,
+        [OtelID] [int] NULL,
+        [TelefonNo] [nchar](10) NULL,
+        [MailAdres] [nchar](50) NULL,
+        PRIMARY KEY CLUSTERED
+        (
+        [FirmaID] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+        ) ON [PRIMARY]
+        GO
+        /****** Object:  Table [dbo].[MusteriTablosu]    Script Date: 7.01.2023 21:42:13 ******/
+        SET ANSI_NULLS ON
+        GO
+        SET QUOTED_IDENTIFIER ON
+        GO
+        CREATE TABLE [dbo].[MusteriTablosu](
+        [TCNO] [nchar](11) NOT NULL,
+        [Ad] [nchar](50) NULL,
+        [Soyad] [nchar](50) NULL,
+        [TelefonNo] [nchar](10) NULL,
+        [MailAdres] [nchar](50) NULL,
+        PRIMARY KEY CLUSTERED
+        (
+        [TCNO] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+        ) ON [PRIMARY]
+        GO
+        /****** Object:  Table [dbo].[OdaTablosu]    Script Date: 7.01.2023 21:42:13 ******/
+        SET ANSI_NULLS ON
+        GO
+        SET QUOTED_IDENTIFIER ON
+        GO
+        CREATE TABLE [dbo].[OdaTablosu](
+        [OdaID] [int] NOT NULL,
+        [OdaAdý] [nchar](50) NULL,
+        [Konum] [nchar](50) NULL,
+        [Hizmet] [nchar](50) NULL,
+        PRIMARY KEY CLUSTERED
+        (
+        [OdaID] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+        ) ON [PRIMARY]
+        GO
+        /****** Object:  Table [dbo].[OtelTablosu]    Script Date: 7.01.2023 21:42:13 ******/
+        SET ANSI_NULLS ON
+        GO
+        SET QUOTED_IDENTIFIER ON
+        GO
+        CREATE TABLE [dbo].[OtelTablosu](
+        [OtelID] [int] NOT NULL,
+        [OtelAdý] [nchar](50) NULL,
+        [OdaID] [int] NULL,
+        [TelefonNO] [nchar](10) NULL,
+        [Adres] [nchar](100) NULL,
+        PRIMARY KEY CLUSTERED
+        (
+        [OtelID] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+        ) ON [PRIMARY]
+        GO
+        /****** Object:  Table [dbo].[RezervasyonTablosu]    Script Date: 7.01.2023 21:42:13 ******/
+        SET ANSI_NULLS ON
+        GO
+        SET QUOTED_IDENTIFIER ON
+        GO
+        CREATE TABLE [dbo].[RezervasyonTablosu](
+        [RezervID] [int] IDENTITY(1,1) NOT NULL,
+        [GirisTarih] [date] NULL,
+        [CýkýsTarihi] [date] NULL,
+        PRIMARY KEY CLUSTERED
+        (
+        [RezervID] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+        ) ON [PRIMARY]
+        GO
+        ALTER TABLE [dbo].[MusteriTablosu] ADD  CONSTRAINT [ck_MailAdres]  DEFAULT ('-------') FOR [MailAdres]
+        GO
+        ALTER TABLE [dbo].[OdaTablosu] ADD  CONSTRAINT [ck_OdaAdý]  DEFAULT ('Standart') FOR [OdaAdý]
+        GO
+
+
+
+    </p>
+
+
+
+
+
+
+
+</BODY>
+</HTML>
